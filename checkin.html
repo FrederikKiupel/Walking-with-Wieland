@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Check-In · Walking with Wieland</title>
+  <meta name="theme-color" content="#042615">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Wieland">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icon-180.png">
+  <link rel="icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/style.css?v=55">
+</head>
+<body>
+  <div class="bg" aria-hidden="true"></div>
+
+  <main class="screen ci-screen">
+
+    <!-- Schritt 1: Energie -->
+    <div class="ci-step" id="ci-step-1">
+      <div class="ci-step__header">
+        <button class="icon-btn icon-btn--bare ci-back-btn" id="ci-back-1" type="button" aria-label="Abbrechen"></button>
+        <h1 class="ci-step__q">Wie viel Energie hast du?</h1>
+      </div>
+      <div class="ci-step__visual">
+        <img class="ci-level-icon" id="ci-energy-icon" src="assets/Energie/Energie%20Lvl%203.png" alt="Energielevel">
+      </div>
+      <div class="ci-step__foot">
+        <div class="ci-slider-meta">
+          <span class="ci-slider-level" id="ci-energy-label">Mittel</span>
+          <span class="energy-badge" id="ci-energy-time">ca. 30 Min.</span>
+        </div>
+        <div class="ci-ends"><span>wenig</span><span>viel</span></div>
+        <input class="range" type="range" id="energy" min="0" max="100" value="50">
+        <button class="btn btn--brett" id="ci-next-1" type="button">Weiter</button>
+      </div>
+    </div>
+
+    <!-- Schritt 2: Stress -->
+    <div class="ci-step" id="ci-step-2" hidden>
+      <div class="ci-step__header">
+        <button class="icon-btn icon-btn--bare ci-back-btn" id="ci-back-2" type="button" aria-label="Zurück"></button>
+        <h1 class="ci-step__q">Wie gestresst bist du?</h1>
+      </div>
+      <div class="ci-step__visual">
+        <img class="ci-level-icon" id="ci-stress-icon" src="assets/Stress/Stress%20Lvl%203.png" alt="Stresslevel">
+      </div>
+      <div class="ci-step__foot">
+        <div class="ci-slider-meta">
+          <span class="ci-slider-level" id="ci-stress-label">Okay</span>
+        </div>
+        <div class="ci-ends"><span>entspannt</span><span>sehr gestresst</span></div>
+        <input class="range" type="range" id="stress" min="0" max="100" value="50">
+        <button class="btn btn--brett" id="ci-next-2" type="button">Weiter</button>
+      </div>
+    </div>
+
+    <!-- Schritt 3: Stimmung -->
+    <div class="ci-step" id="ci-step-3" hidden>
+      <div class="ci-step__header">
+        <button class="icon-btn icon-btn--bare ci-back-btn" id="ci-back-3" type="button" aria-label="Zurück"></button>
+        <h1 class="ci-step__q">Wie bist du heute gelaunt?</h1>
+      </div>
+      <div class="ci-step__visual">
+        <img class="ci-level-icon" id="ci-mood-icon" src="assets/Emotionen/Wieland%20-%20neutral.png" alt="Stimmung">
+      </div>
+      <div class="ci-step__foot">
+        <div class="ci-slider-meta">
+          <span class="ci-slider-level" id="ci-mood-label">Okay</span>
+        </div>
+        <div class="ci-ends"><span>mies</span><span>super</span></div>
+        <input class="range" type="range" id="mood" min="0" max="100" value="50">
+        <button class="btn btn--brett" id="ci-next-3" type="button">Weiter</button>
+      </div>
+    </div>
+
+    <!-- Schritt 4: Route -->
+    <div class="ci-step" id="ci-step-4" hidden>
+      <div class="ci-step__header">
+        <button class="icon-btn icon-btn--bare ci-back-btn" id="ci-back-4" type="button" aria-label="Zurück"></button>
+        <h1 class="ci-step__q">Geführte Route?</h1>
+      </div>
+      <div class="ci-step__visual">
+        <div class="card ci-route-card">
+          <div class="switch-row">
+            <label class="field__label" for="route">Strecke generieren</label>
+            <span class="switch">
+              <input type="checkbox" id="route">
+              <span class="switch__slider" aria-hidden="true"></span>
+            </span>
+          </div>
+          <p class="hint" id="route-hint" hidden style="margin-top:6px;color:#c97b00">
+            Kein API-Schlüssel hinterlegt. In den Einstellungen eintragen.
+          </p>
+          <div id="location-choice" hidden aria-live="polite">
+            <p class="field__label" style="margin:14px 0 8px">Startpunkt</p>
+            <div class="loc-row">
+              <button class="btn btn--brett btn-sm" id="loc-gps" type="button">Aktueller Standort</button>
+              <button class="btn btn--brett btn-sm" id="loc-home" type="button" hidden>Heimat-Standort</button>
+            </div>
+            <p class="hint" id="loc-hint" style="margin-top:8px"></p>
+          </div>
+        </div>
+      </div>
+      <div class="ci-step__foot">
+        <button class="btn btn--brett" id="ci-start" type="button">Starten</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="js/exercises.js?v=10"></script>
+  <script src="js/trophies.js?v=10"></script>
+  <script src="js/app.js?v=22"></script>
+  <script src="js/checkin.js?v=16"></script>
+</body>
+</html>
